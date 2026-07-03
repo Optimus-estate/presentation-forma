@@ -9,206 +9,323 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
+/* ── RESET ── */
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:#FAF7F2;color:#1a1a1a;display:flex;flex-direction:column;align-items:center}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:#FAF7F2;
+  color:#1a1a1a;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
 body > *{width:100%;max-width:1100px}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
 
 /* ── HERO ── */
 .hero{
   position:relative;
-  min-height:280px;
+  min-height:260px;
   background:url('hero-bg.jpg') center/cover no-repeat;
-  padding:28px 32px 36px;
+  padding:24px 20px 32px;
   color:#fff;
 }
-.hero::after{content:'';position:absolute;inset:0;background:rgba(28,43,75,0.45);pointer-events:none}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(28,43,75,0.52);pointer-events:none;
+}
 .hero > *{position:relative;z-index:1}
-.hero-top{display:flex;align-items:center;gap:14px}
-.hero-logo{width:52px;height:52px;object-fit:contain;filter:brightness(0) invert(1)}
-.hero-logo-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff}
-.hero-logo-sub{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#C9A24B;margin-top:2px}
+.hero-top{display:flex;align-items:center;gap:12px}
+.hero-logo{
+  width:44px;height:44px;object-fit:contain;
+  filter:brightness(0) invert(1);flex-shrink:0;
+}
+.hero-logo-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;color:#fff;
+  line-height:1.1;
+}
+.hero-logo-sub{
+  font-size:9px;font-weight:600;
+  letter-spacing:2.5px;text-transform:uppercase;
+  color:#C9A24B;margin-top:3px;
+}
 .hero-title{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(22px,4vw,38px);
+  font-size:clamp(20px,5.5vw,36px);
   font-weight:700;color:#fff;
-  margin-top:24px;line-height:1.15;
-  max-width:620px;text-transform:uppercase;
+  margin-top:20px;line-height:1.15;
+  text-transform:uppercase;
 }
-.hero-sub{margin-top:12px;font-size:13px;color:rgba(255,255,255,0.85);max-width:520px;line-height:1.6}
+.hero-sub{
+  margin-top:10px;
+  font-size:12px;
+  color:rgba(255,255,255,0.82);
+  line-height:1.65;
+}
 
 /* ── USP STRIP ── */
 .usp-strip{
   background:#1C2B4B;
-  display:flex;
-  align-items:flex-start;
-  padding:18px 32px;
-  gap:0;
-  overflow-x:auto;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  padding:14px 16px;
+  gap:4px;
 }
 .usp-item{
-  flex:1;min-width:90px;
   display:flex;flex-direction:column;
   align-items:center;text-align:center;
-  padding:0 8px;gap:7px;
+  padding:4px 4px;gap:6px;
 }
-.usp-icon{width:32px;height:32px;flex-shrink:0;color:#C9A24B}
-.usp-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;color:#fff;line-height:1.4;max-width:100px}
+.usp-icon{color:#C9A24B;flex-shrink:0}
+.usp-icon svg{width:26px;height:26px;stroke:#C9A24B;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.usp-label{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:#fff;line-height:1.4}
 
-/* ── SECTION HEADER ── */
-.section-head{padding:28px 32px 14px;background:#FAF7F2}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;text-transform:uppercase;color:#1C2B4B}
-.section-subtitle{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#C9A24B;text-transform:uppercase;margin-top:3px}
+/* ── SECTION HEAD ── */
+.section-head{padding:24px 20px 12px;background:#FAF7F2}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;text-transform:uppercase;color:#1C2B4B}
+.section-subtitle{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:#C9A24B;text-transform:uppercase;margin-top:3px}
 
 /* ── CARDS GRID ── */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0 16px 16px}
-.card{background:#fff;border:1px solid #EDE7DC;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.07);display:flex;flex-direction:column}
-.card-img{width:100%;height:148px;object-fit:cover;display:block;flex-shrink:0}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  padding:0 12px 12px;
+}
+.card{
+  background:#fff;
+  border:1px solid #EDE7DC;
+  border-radius:3px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+}
+.card-img{width:100%;height:140px;object-fit:cover;flex-shrink:0}
 .card-title{
   font-family:'Cormorant Garamond',serif;
-  font-size:18px;font-weight:700;
+  font-size:15px;font-weight:700;
   color:#fff;background:#1C2B4B;
-  padding:8px 14px;
-  letter-spacing:0.2px;line-height:1.3;
+  padding:7px 12px;line-height:1.25;
 }
-.card-body{padding:0 14px 14px;flex:1;display:flex;flex-direction:column}
-.card-list{list-style:none;flex:1;margin-top:11px}
+.card-body{padding:10px 12px 12px;flex:1;display:flex;flex-direction:column}
+.card-list{list-style:none;flex:1}
 .card-list li{
-  font-size:10.5px;color:#1a1a1a;line-height:1.6;
-  padding:1.5px 0;display:flex;gap:5px;
+  font-size:10px;color:#333;line-height:1.55;
+  padding:1px 0;display:flex;gap:5px;
 }
-.card-list li::before{content:'★';color:#C9A24B;font-size:8px;flex-shrink:0;margin-top:3px}
+.card-list li::before{content:'★';color:#C9A24B;font-size:7.5px;flex-shrink:0;margin-top:3px}
 .card-tag{
   margin-top:10px;
-  display:inline-block;
-  background:#FAF7F2;
-  border:1px solid #C9A24B;
-  color:#1C2B4B;
-  font-size:8.5px;font-weight:800;
-  text-transform:uppercase;letter-spacing:0.8px;
-  padding:5px 10px;
-  align-self:flex-start;
+  background:#FAF7F2;border:1px solid #C9A24B;
+  color:#1C2B4B;font-size:8px;font-weight:800;
+  text-transform:uppercase;letter-spacing:0.7px;
+  padding:5px 8px;align-self:flex-start;
+  cursor:pointer;
 }
+.card-tag:hover{background:#C9A24B;color:#1C2B4B}
 .ig-row{
   display:flex;align-items:center;
-  justify-content:center;gap:5px;
-  font-size:9px;font-weight:700;
+  gap:5px;margin-top:10px;
+  font-size:8.5px;font-weight:700;
   color:#1C2B4B;text-transform:uppercase;
-  margin-top:10px;text-decoration:none;
 }
-.ig-row:hover{color:#C9A24B}
+.ig-row svg{flex-shrink:0}
 
 /* ── HOW WE WORK ── */
-.how-section{background:#1C2B4B;padding:32px 32px 36px}
-.how-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:24px;text-align:center}
-.how-flow{display:flex;align-items:flex-start;flex-wrap:wrap;gap:8px;justify-content:center}
-.how-step{display:flex;flex-direction:column;align-items:center;gap:8px;width:120px;text-align:center}
+.how-section{background:#1C2B4B;padding:28px 20px 32px}
+.how-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:700;
+  text-transform:uppercase;color:#fff;
+  margin-bottom:22px;text-align:center;
+}
+.how-flow{display:flex;align-items:flex-start;gap:6px;justify-content:center;flex-wrap:nowrap}
+.how-step{display:flex;flex-direction:column;align-items:center;gap:7px;min-width:0;flex:1;text-align:center}
 .how-circle{
-  width:46px;height:46px;border-radius:50%;
-  background:rgba(201,162,75,0.15);
+  width:42px;height:42px;border-radius:50%;
+  background:rgba(201,162,75,0.12);
   border:1.5px solid #C9A24B;
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;
 }
-.how-circle svg{width:20px;height:20px;stroke:#C9A24B;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.how-label{font-size:9.5px;font-weight:600;color:#fff;line-height:1.45;letter-spacing:0.2px}
-.how-arrow{color:#C9A24B;font-size:20px;margin-top:12px;flex-shrink:0}
+.how-circle svg{width:18px;height:18px;stroke:#C9A24B;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.how-label{font-size:8.5px;font-weight:600;color:#fff;line-height:1.4}
+.how-arrow{color:#C9A24B;font-size:16px;margin-top:11px;flex-shrink:0}
 
 /* ── WHY US ── */
-.why-section{background:#fff;padding:32px 32px}
-.why-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;text-transform:uppercase;color:#1C2B4B;margin-bottom:20px;text-align:center}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.why-card{border:1px solid #EDE7DC;padding:18px 16px;text-align:center}
-.why-icon{width:36px;height:36px;margin:0 auto 10px;color:#C9A24B}
-.why-icon svg{width:36px;height:36px;stroke:#C9A24B;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.why-h{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:#1C2B4B;margin-bottom:6px}
-.why-p{font-size:10.5px;color:#555;line-height:1.6}
+.why-section{background:#fff;padding:28px 20px}
+.why-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:700;
+  text-transform:uppercase;color:#1C2B4B;
+  margin-bottom:18px;text-align:center;
+}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.why-card{border:1px solid #EDE7DC;padding:16px 12px;text-align:center}
+.why-icon svg{width:32px;height:32px;stroke:#C9A24B;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin:0 auto 10px;display:block}
+.why-h{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;color:#1C2B4B;margin-bottom:6px;line-height:1.3}
+.why-p{font-size:10px;color:#555;line-height:1.6}
 
-/* ── FORM SECTION ── */
-.form-section{background:#FAF7F2;padding:36px 32px 48px}
-.form-wrap{max-width:600px;margin:0 auto}
-.form-headline{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;text-transform:uppercase;color:#1C2B4B;text-align:center;margin-bottom:6px}
-.form-sub{font-size:12px;color:#666;text-align:center;line-height:1.6;margin-bottom:28px}
-.form-gold-line{width:60px;height:2px;background:#C9A24B;margin:0 auto 24px}
-.form-field{margin-bottom:14px}
-.form-field label{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#1C2B4B;margin-bottom:5px}
+/* ── FORM ── */
+.form-section{background:#FAF7F2;padding:32px 20px 44px}
+.form-wrap{max-width:580px;margin:0 auto}
+.form-headline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-weight:700;
+  text-transform:uppercase;color:#1C2B4B;
+  text-align:center;margin-bottom:6px;
+}
+.form-gold-line{width:50px;height:2px;background:#C9A24B;margin:0 auto 16px}
+.form-sub{font-size:11.5px;color:#666;text-align:center;line-height:1.65;margin-bottom:22px}
+.form-field{margin-bottom:12px}
+.form-field label{
+  display:block;font-size:9.5px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.8px;
+  color:#1C2B4B;margin-bottom:5px;
+}
 .form-field input,
 .form-field select,
 .form-field textarea{
-  width:100%;
-  padding:10px 14px;
-  border:1px solid #DDD8D0;
-  background:#fff;
+  width:100%;padding:11px 14px;
+  border:1px solid #DDD8D0;background:#fff;
   font-family:'Inter',sans-serif;
-  font-size:12px;
-  color:#1a1a1a;
-  outline:none;
+  font-size:13px;color:#1a1a1a;
+  outline:none;border-radius:0;
+  -webkit-appearance:none;
   transition:border-color 0.2s;
 }
 .form-field input:focus,
 .form-field select:focus,
 .form-field textarea:focus{border-color:#C9A24B}
 .form-field textarea{resize:vertical;min-height:80px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .form-submit{
-  width:100%;
-  background:#1C2B4B;
-  color:#C9A24B;
+  width:100%;background:#1C2B4B;color:#C9A24B;
   font-family:'Inter',sans-serif;
   font-size:11px;font-weight:800;
   text-transform:uppercase;letter-spacing:1.5px;
-  padding:14px;
-  border:none;cursor:pointer;
-  margin-top:8px;
-  transition:background 0.2s;
+  padding:15px;border:none;cursor:pointer;
+  margin-top:6px;transition:background 0.2s;
+  -webkit-tap-highlight-color:transparent;
 }
-.form-submit:hover{background:#C9A24B;color:#1C2B4B}
-.form-note{font-size:9.5px;color:#999;text-align:center;margin-top:12px;line-height:1.5}
+.form-submit:hover,.form-submit:active{background:#C9A24B;color:#1C2B4B}
+.form-note{font-size:9px;color:#999;text-align:center;margin-top:12px;line-height:1.55}
 .form-success{
-  display:none;
-  text-align:center;
-  padding:32px;
-  background:#fff;
+  display:none;text-align:center;
+  padding:32px 20px;background:#fff;
   border:1px solid #C9A24B;
 }
-.form-success-icon{font-size:36px;margin-bottom:12px}
-.form-success-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#1C2B4B;margin-bottom:8px}
-.form-success-text{font-size:12px;color:#555;line-height:1.6}
+.form-success-icon{font-size:40px;margin-bottom:14px;color:#C9A24B}
+.form-success-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:#1C2B4B;margin-bottom:10px}
+.form-success-text{font-size:12px;color:#555;line-height:1.65}
 
 /* ── FOOTER ── */
-.footer{
-  background:#1C2B4B;
-  padding:28px 32px;
-  display:flex;gap:32px;
-  flex-wrap:wrap;
-}
-.footer-col{flex:1;min-width:180px}
-.footer-col-title{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#C9A24B;margin-bottom:14px}
-.f-contact{display:flex;align-items:flex-start;gap:9px;margin-bottom:10px}
-.f-icon{width:18px;height:18px;flex-shrink:0;margin-top:1px}
-.f-icon svg{width:18px;height:18px;stroke:#C9A24B;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.footer{background:#1C2B4B;padding:24px 20px;display:flex;gap:20px;flex-wrap:wrap}
+.footer-col{flex:1;min-width:150px}
+.footer-col-title{font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#C9A24B;margin-bottom:12px}
+.f-contact{display:flex;align-items:flex-start;gap:8px;margin-bottom:10px}
+.f-icon svg{width:16px;height:16px;stroke:#C9A24B;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
 .f-name{font-size:11px;font-weight:700;color:#fff}
-.f-phone{font-size:11px;color:rgba(255,255,255,0.75);margin-top:1px}
-.f-label{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:#C9A24B}
-.f-val{font-size:11px;color:rgba(255,255,255,0.85);margin-top:2px}
-.ig-footer{display:flex;align-items:center;gap:7px;margin-top:12px;text-decoration:none}
-.ig-footer-text{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#C9A24B}
+.f-phone{font-size:11px;color:rgba(255,255,255,0.72);margin-top:2px}
+.f-label{font-size:8.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.4px;color:#C9A24B}
+.f-val{font-size:11px;color:rgba(255,255,255,0.82);margin-top:2px}
+.ig-footer{display:flex;align-items:center;gap:7px;margin-top:8px}
+.ig-footer svg{flex-shrink:0}
+.ig-footer-text{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;color:#C9A24B}
 
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
-  .grid{grid-template-columns:1fr 1fr}
-  .why-grid{grid-template-columns:1fr}
-  .how-flow{gap:6px}
-  .how-step{width:100px}
+/* ══════════════════════════════
+   MOBILE — основная работа здесь
+══════════════════════════════ */
+@media(max-width:700px){
+
+  /* Hero */
+  .hero{min-height:auto;padding:18px 16px 26px}
+  .hero-logo{width:38px;height:38px}
+  .hero-logo-name{font-size:17px}
+  .hero-title{font-size:22px;margin-top:16px}
+  .hero-sub{font-size:11.5px}
+
+  /* USP — 2 колонки на мобиле, 3 самых важных */
+  .usp-strip{grid-template-columns:repeat(3,1fr);padding:12px}
+  .usp-item:nth-child(4),
+  .usp-item:nth-child(5){display:none}
+  .usp-label{font-size:7.5px}
+  .usp-icon svg{width:22px;height:22px}
+
+  /* Section head */
+  .section-head{padding:20px 16px 10px}
+  .section-title{font-size:20px}
+  .section-subtitle{font-size:14px}
+
+  /* Cards — 1 колонка на мобиле */
+  .grid{grid-template-columns:1fr;gap:10px;padding:0 12px 12px}
+  .card-img{height:180px}
+  .card-title{font-size:17px;padding:8px 14px}
+  .card-list li{font-size:11px}
+  .card-tag{font-size:9px;padding:6px 12px}
+
+  /* How we work — вертикально на мобиле */
+  .how-section{padding:24px 16px 28px}
+  .how-title{font-size:20px;margin-bottom:20px}
+  .how-flow{
+    flex-direction:column;
+    align-items:center;
+    gap:0;
+  }
+  .how-step{
+    flex-direction:row;
+    width:100%;max-width:320px;
+    text-align:left;gap:14px;
+    padding:10px 0;
+  }
+  .how-circle{width:40px;height:40px;flex-shrink:0}
+  .how-circle svg{width:16px;height:16px}
+  .how-label{font-size:12px;font-weight:600}
+  .how-arrow{
+    transform:rotate(90deg);
+    margin:0;
+    font-size:14px;
+    align-self:flex-start;
+    margin-left:20px;
+    opacity:0.6;
+  }
+
+  /* Why us — 1 колонка */
+  .why-section{padding:24px 16px}
+  .why-title{font-size:20px;margin-bottom:14px}
+  .why-grid{grid-template-columns:1fr;gap:10px}
+  .why-card{padding:14px}
+  .why-icon svg{width:28px;height:28px;margin-bottom:8px}
+  .why-h{font-size:16px}
+  .why-p{font-size:11px}
+
+  /* Form */
+  .form-section{padding:24px 16px 36px}
+  .form-headline{font-size:22px}
+  .form-sub{font-size:11px}
   .form-row{grid-template-columns:1fr}
-  .hero{padding:20px 18px 28px}
-  .section-head{padding:20px 18px 10px}
-  .grid{padding:0 10px 10px}
-  .how-section,.why-section,.form-section,.footer{padding-left:18px;padding-right:18px}
+  .form-field input,
+  .form-field select,
+  .form-field textarea{
+    font-size:16px; /* предотвращает zoom на iOS */
+    padding:12px 14px;
+  }
+  .form-submit{font-size:12px;padding:16px;letter-spacing:1px}
+
+  /* Footer — вертикально */
+  .footer{flex-direction:column;gap:20px;padding:22px 16px}
+  .footer-col{min-width:unset}
 }
-@media(max-width:520px){
-  .grid{grid-template-columns:1fr}
-  .usp-strip{padding:14px 16px}
-  .usp-label{font-size:8px}
+
+@media(max-width:380px){
+  .usp-strip{grid-template-columns:1fr 1fr 1fr}
+  .usp-label{font-size:7px}
+  .hero-title{font-size:19px}
+  .card-img{height:150px}
 }
 </style>
 </head>
@@ -217,7 +334,7 @@ body > *{width:100%;max-width:1100px}
 <!-- ══ HERO ══ -->
 <div class="hero">
   <div class="hero-top">
-    <img src="https://optimus-estate.github.io/general/logo.png" alt="Optimus Estate" class="hero-logo"/>
+    <img src="logo.png" alt="Optimus Estate" class="hero-logo"/>
     <div>
       <div class="hero-logo-name">Optimus Estate</div>
       <div class="hero-logo-sub">Инвестиционная компания</div>
@@ -231,33 +348,33 @@ body > *{width:100%;max-width:1100px}
 <div class="usp-strip">
   <div class="usp-item">
     <div class="usp-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
     </div>
-    <div class="usp-label">Работаем только через партнёров</div>
+    <div class="usp-label">Только через партнёров</div>
   </div>
   <div class="usp-item">
     <div class="usp-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
     </div>
-    <div class="usp-label">Прямые цены от застройщика</div>
+    <div class="usp-label">Прямые цены</div>
   </div>
   <div class="usp-item">
     <div class="usp-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
     </div>
-    <div class="usp-label">Готовые документы и сопровождение</div>
+    <div class="usp-label">Готовые документы</div>
   </div>
   <div class="usp-item">
     <div class="usp-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
     </div>
-    <div class="usp-label">Эксклюзивные проекты</div>
+    <div class="usp-label">Эксклюзивы</div>
   </div>
   <div class="usp-item">
     <div class="usp-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     </div>
-    <div class="usp-label">Гарантированная защита комиссии</div>
+    <div class="usp-label">Защита комиссии</div>
   </div>
 </div>
 
@@ -268,11 +385,9 @@ body > *{width:100%;max-width:1100px}
 </div>
 
 <div class="grid">
-
-  <!-- Apollon -->
   <div class="card">
+    <img src="apollon.jpg" alt="Аполлон — Равда" class="card-img" loading="lazy"/>
     <div class="card-title">Аполлон — Равда</div>
-    <img src="https://optimus-estate.github.io/general/apollon.jpg" alt="Аполлон — Равда" class="card-img" loading="lazy"/>
     <div class="card-body">
       <ul class="card-list">
         <li>Семейный комплекс у моря</li>
@@ -281,97 +396,86 @@ body > *{width:100%;max-width:1100px}
         <li>Студии, 1, 2 и 3 спальни</li>
         <li>Развитая инфраструктура</li>
       </ul>
-      <div class="card-tag">Запросить прайс ↓</div>
+      <div class="card-tag" onclick="scrollToForm()">Запросить прайс ↓</div>
     </div>
   </div>
 
-  <!-- Tarsis -->
   <div class="card">
+    <img src="tarsis.jpg" alt="Тарсис" class="card-img" loading="lazy"/>
     <div class="card-title">Тарсис — Солнечный берег</div>
-    <img src="https://optimus-estate.github.io/general/tarsis.jpg" alt="Тарсис" class="card-img" loading="lazy"/>
     <div class="card-body">
       <ul class="card-list">
         <li>Курортный комплекс с высокой доходностью</li>
-        <li>Активная туристическая локация</li>
         <li>Бассейны, рестораны, SPA, фитнес</li>
         <li>Студии, 1 и 2 спальни</li>
         <li>Идеально для аренды и инвестиций</li>
       </ul>
-      <div class="card-tag">Запросить прайс ↓</div>
+      <div class="card-tag" onclick="scrollToForm()">Запросить прайс ↓</div>
     </div>
   </div>
 
-  <!-- Secondary -->
   <div class="card">
+    <img src="secondary.jpg" alt="Вторичная недвижимость" class="card-img" loading="lazy"/>
     <div class="card-title">Вторичная недвижимость</div>
-    <img src="https://optimus-estate.github.io/general/secondary.jpg" alt="Вторичная недвижимость" class="card-img" loading="lazy"/>
     <div class="card-body">
       <ul class="card-list">
         <li>Готовые апартаменты у моря</li>
         <li>Востребованные курортные локации</li>
-        <li>Подходит для отдыха и аренды</li>
         <li>Студии и апартаменты разных форматов</li>
         <li>Инвестиционная привлекательность</li>
       </ul>
-      <div class="card-tag">Запросить прайс ↓</div>
+      <div class="card-tag" onclick="scrollToForm()">Запросить прайс ↓</div>
     </div>
   </div>
 
-  <!-- Pomorie -->
   <div class="card">
+    <img src="pomorie.jpg" alt="Pomorie Luxury Village" class="card-img" loading="lazy"/>
     <div class="card-title">Pomorie Luxury Village</div>
-    <img src="https://optimus-estate.github.io/general/pomorie.jpg" alt="Pomorie Luxury Village" class="card-img" loading="lazy"/>
     <div class="card-body">
       <ul class="card-list">
         <li>Премиальный комплекс домов у моря</li>
         <li>Просторные дома с собственными участками</li>
         <li>Тихий и престижный район Помория</li>
-        <li>Подходит для круглогодичного проживания</li>
-        <li>Высокий потенциал для отдыха и инвестиций</li>
+        <li>Круглогодичное проживание</li>
       </ul>
       <a href="https://www.instagram.com/pomorieluxuryvillage/" target="_blank" class="ig-row">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A24B" stroke="none"/></svg>
-        <span>Смотреть в Instagram</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A24B" stroke="none"/></svg>
+        <span>Instagram</span>
       </a>
     </div>
   </div>
 
-  <!-- Belle Air -->
   <div class="card">
+    <img src="belleair.jpg" alt="Belle Air" class="card-img" loading="lazy"/>
     <div class="card-title">Belle Air — Святой Влас</div>
-    <img src="https://optimus-estate.github.io/general/belleair.jpg" alt="Belle Air" class="card-img" loading="lazy"/>
     <div class="card-body">
       <ul class="card-list">
         <li>Премиальный образ жизни</li>
         <li>Качественное строительство</li>
         <li>Спокойный и престижный район</li>
-        <li>Для взыскательных покупателей</li>
         <li>Долгосрочные инвестиции</li>
       </ul>
       <a href="https://www.instagram.com/belleair_svetivlas" target="_blank" class="ig-row">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A24B" stroke="none"/></svg>
-        <span>Смотреть в Instagram</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A24B" stroke="none"/></svg>
+        <span>Instagram</span>
       </a>
     </div>
   </div>
 
-  <!-- Central Park -->
   <div class="card">
+    <img src="centralpark.jpg" alt="Central Park" class="card-img" loading="lazy"/>
     <div class="card-title">Central Park — Бургас</div>
-    <img src="https://optimus-estate.github.io/general/centralpark.jpg" alt="Central Park" class="card-img" loading="lazy"/>
     <div class="card-body">
       <ul class="card-list">
         <li>Современный комплекс в Бургасе</li>
-        <li>Престижный и развивающийся район</li>
+        <li>Престижный развивающийся район</li>
         <li>Комфорт для жизни круглый год</li>
-        <li>Развитая инфраструктура рядом</li>
         <li>Отличный инвестиционный потенциал</li>
       </ul>
-      <div class="card-tag">Запросить прайс ↓</div>
+      <div class="card-tag" onclick="scrollToForm()">Запросить прайс ↓</div>
     </div>
   </div>
-
-</div><!-- /grid -->
+</div>
 
 <!-- ══ HOW WE WORK ══ -->
 <section class="how-section">
@@ -388,7 +492,7 @@ body > *{width:100%;max-width:1100px}
       <div class="how-circle">
         <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="8" r="3.5"/><path d="M2 20c0-3.3 3.1-6 7-6h6c3.9 0 7 2.7 7 6"/></svg>
       </div>
-      <div class="how-label">Доступ к актуальному наличию и ценам</div>
+      <div class="how-label">Доступ к наличию и актуальным ценам</div>
     </div>
     <div class="how-arrow">→</div>
     <div class="how-step">
@@ -412,17 +516,17 @@ body > *{width:100%;max-width:1100px}
   <h2 class="why-title">Почему партнёры выбирают нас</h2>
   <div class="why-grid">
     <div class="why-card">
-      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       <div class="why-h">Объекты не на площадках</div>
-      <div class="why-p">Наши предложения недоступны на alo.bg и других платформах. Это ваше конкурентное преимущество перед клиентом.</div>
+      <div class="why-p">Наши предложения недоступны на alo.bg и других платформах — это ваше конкурентное преимущество перед клиентом.</div>
     </div>
     <div class="why-card">
-      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M20 12V6H4v14h8"/><circle cx="18" cy="18" r="4"/><path d="m16 18 1.5 1.5L20 16"/></svg></div>
+      <svg viewBox="0 0 24 24"><path d="M20 12V6H4v14h8"/><circle cx="18" cy="18" r="4"/><path d="m16 18 1.5 1.5L20 16"/></svg>
       <div class="why-h">Гарантия комиссии</div>
-      <div class="why-p">Комиссия партнёра защищена с момента регистрации клиента. Никаких рисков потерять свою часть сделки.</div>
+      <div class="why-p">Комиссия защищена с момента регистрации клиента. Никаких рисков потерять свою часть сделки.</div>
     </div>
     <div class="why-card">
-      <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       <div class="why-h">Быстрая реакция</div>
       <div class="why-p">Отвечаем на запросы партнёров в течение часа. Актуальные цены и наличие — всегда под рукой.</div>
     </div>
@@ -430,31 +534,31 @@ body > *{width:100%;max-width:1100px}
 </section>
 
 <!-- ══ FORM ══ -->
-<section class="form-section">
+<section class="form-section" id="partner-form">
   <div class="form-wrap">
     <h2 class="form-headline">Стать партнёром</h2>
     <div class="form-gold-line"></div>
-    <p class="form-sub">Заполните форму — мы свяжемся с вами и предоставим актуальные прайсы,<br>презентации и условия сотрудничества</p>
+    <p class="form-sub">Заполните форму — мы свяжемся с вами и предоставим актуальные прайсы, презентации и условия сотрудничества</p>
 
     <div id="formBlock">
       <div class="form-row">
         <div class="form-field">
           <label>Ваше имя *</label>
-          <input type="text" id="f-name" placeholder="Иван Иванов" required/>
+          <input type="text" id="f-name" placeholder="Иван Иванов" autocomplete="name"/>
         </div>
         <div class="form-field">
           <label>Агентство / Компания *</label>
-          <input type="text" id="f-company" placeholder="Название агентства" required/>
+          <input type="text" id="f-company" placeholder="Название агентства" autocomplete="organization"/>
         </div>
       </div>
       <div class="form-row">
         <div class="form-field">
           <label>Email *</label>
-          <input type="email" id="f-email" placeholder="ivan@agency.com" required/>
+          <input type="email" id="f-email" placeholder="ivan@agency.com" autocomplete="email" inputmode="email"/>
         </div>
         <div class="form-field">
           <label>Телефон / WhatsApp</label>
-          <input type="tel" id="f-phone" placeholder="+7 или +359..."/>
+          <input type="tel" id="f-phone" placeholder="+7 или +359..." autocomplete="tel" inputmode="tel"/>
         </div>
       </div>
       <div class="form-row">
@@ -466,7 +570,7 @@ body > *{width:100%;max-width:1100px}
           <label>Что вас интересует?</label>
           <select id="f-interest">
             <option value="">Выберите...</option>
-            <option>Прайсы и наличие по всем объектам</option>
+            <option>Прайсы по всем объектам</option>
             <option>Аполлон — Равда</option>
             <option>Тарсис — Солнечный берег</option>
             <option>Belle Air — Святой Влас</option>
@@ -497,49 +601,53 @@ body > *{width:100%;max-width:1100px}
   <div class="footer-col">
     <div class="footer-col-title">Контакты</div>
     <div class="f-contact">
-      <div class="f-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-      <div><div class="f-name">Александр</div><div class="f-phone">+359 87 769 25 46</div></div>
+      <div><svg viewBox="0 0 24 24" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="#C9A24B" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="f-name">Александр</div><div class="f-phone"><a href="tel:+35987769254" style="color:inherit">+359 87 769 25 46</a></div></div>
     </div>
     <div class="f-contact">
-      <div class="f-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-      <div><div class="f-name">Василий</div><div class="f-phone">+359 89 517 66 85</div></div>
+      <div><svg viewBox="0 0 24 24" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="#C9A24B" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="f-name">Василий</div><div class="f-phone"><a href="tel:+35989517668" style="color:inherit">+359 89 517 66 85</a></div></div>
     </div>
   </div>
   <div class="footer-col">
     <div class="footer-col-title">Реквизиты</div>
     <div class="f-contact">
-      <div class="f-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+      <div><svg viewBox="0 0 24 24" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#C9A24B" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22,6 12,13 2,6" stroke="#C9A24B" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div><div class="f-label">Email</div><div class="f-val">optimusbg@mail.ru</div></div>
     </div>
     <div class="f-contact">
-      <div class="f-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <div><svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10" stroke="#C9A24B" fill="none" stroke-width="1.8" stroke-linecap="round"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="#C9A24B" fill="none" stroke-width="1.8" stroke-linecap="round"/></svg></div>
       <div><div class="f-label">Сайт</div><div class="f-val">bolgarskidom.com</div></div>
     </div>
   </div>
   <div class="footer-col">
-    <div class="footer-col-title">Соцсети</div>
+    <div class="footer-col-title">Instagram</div>
     <a href="https://www.instagram.com/optimus.estate" target="_blank" class="ig-footer">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A24B" stroke="none"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A24B" stroke="none"/></svg>
       <span class="ig-footer-text">Optimus Estate</span>
     </a>
-    <a href="https://www.instagram.com/belleair_svetivlas" target="_blank" class="ig-footer" style="margin-top:8px">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A24B" stroke="none"/></svg>
-      <span class="ig-footer-text">Belle Air Sveti Vlas</span>
+    <a href="https://www.instagram.com/belleair_svetivlas" target="_blank" class="ig-footer">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A24B" stroke="none"/></svg>
+      <span class="ig-footer-text">Belle Air</span>
     </a>
-    <a href="https://www.instagram.com/pomorieluxuryvillage" target="_blank" class="ig-footer" style="margin-top:8px">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A24B" stroke="none"/></svg>
+    <a href="https://www.instagram.com/pomorieluxuryvillage" target="_blank" class="ig-footer">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9A24B" stroke="none"/></svg>
       <span class="ig-footer-text">Pomorie Luxury Village</span>
     </a>
   </div>
 </footer>
 
 <script>
-function submitForm() {
+function scrollToForm(){
+  document.getElementById('partner-form').scrollIntoView({behavior:'smooth'});
+}
+
+function submitForm(){
   var name = document.getElementById('f-name').value.trim();
   var company = document.getElementById('f-company').value.trim();
   var email = document.getElementById('f-email').value.trim();
 
-  if (!name || !company || !email) {
+  if(!name||!company||!email){
     alert('Пожалуйста, заполните обязательные поля: имя, агентство и email.');
     return;
   }
@@ -549,23 +657,21 @@ function submitForm() {
   var interest = document.getElementById('f-interest').value;
   var comment = document.getElementById('f-comment').value.trim();
 
-  // Собираем данные в mailto — самый простой вариант без сервера
-  var subject = encodeURIComponent('Запрос партнёра: ' + name + ' / ' + company);
+  var subject = encodeURIComponent('Запрос партнёра: '+name+' / '+company);
   var body = encodeURIComponent(
-    'Имя: ' + name + '\n' +
-    'Агентство: ' + company + '\n' +
-    'Email: ' + email + '\n' +
-    'Телефон: ' + (phone || '—') + '\n' +
-    'Страна: ' + (country || '—') + '\n' +
-    'Интерес: ' + (interest || '—') + '\n' +
-    'Комментарий: ' + (comment || '—')
+    'Имя: '+name+'\n'+
+    'Агентство: '+company+'\n'+
+    'Email: '+email+'\n'+
+    'Телефон: '+(phone||'—')+'\n'+
+    'Страна: '+(country||'—')+'\n'+
+    'Интерес: '+(interest||'—')+'\n'+
+    'Комментарий: '+(comment||'—')
   );
 
-  window.location.href = 'mailto:optimusbg@mail.ru?subject=' + subject + '&body=' + body;
+  window.location.href='mailto:optimusbg@mail.ru?subject='+subject+'&body='+body;
 
-  // Показываем успех
-  document.getElementById('formBlock').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
+  document.getElementById('formBlock').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
 }
 </script>
 
