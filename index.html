@@ -642,7 +642,7 @@ function scrollToForm(){
   document.getElementById('partner-form').scrollIntoView({behavior:'smooth'});
 }
 
-function submitForm(){
+async function submitForm(){
   var name = document.getElementById('f-name').value.trim();
   var company = document.getElementById('f-company').value.trim();
   var email = document.getElementById('f-email').value.trim();
@@ -657,21 +657,41 @@ function submitForm(){
   var interest = document.getElementById('f-interest').value;
   var comment = document.getElementById('f-comment').value.trim();
 
-  var subject = encodeURIComponent('Запрос партнёра: '+name+' / '+company);
-  var body = encodeURIComponent(
-    'Имя: '+name+'\n'+
-    'Агентство: '+company+'\n'+
-    'Email: '+email+'\n'+
-    'Телефон: '+(phone||'—')+'\n'+
-    'Страна: '+(country||'—')+'\n'+
-    'Интерес: '+(interest||'—')+'\n'+
-    'Комментарий: '+(comment||'—')
-  );
+  var submitBtn = document.querySelector('.form-submit');
+  var originalBtnText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Отправка...';
 
-  window.location.href='mailto:optimusbg@mail.ru?subject='+subject+'&body='+body;
+  try {
+    const response = await fetch('https://hook.eu1.make.com/vf7uazlhhd35js8xf3p72676dhhsjnzo', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        company: company,
+        email: email,
+        phone: phone,
+        country: country,
+        interest: interest,
+        comment: comment
+      })
+    });
 
-  document.getElementById('formBlock').style.display='none';
-  document.getElementById('formSuccess').style.display='block';
+    if(!response.ok){
+      throw new Error('Webhook error: ' + response.status);
+    }
+
+    document.getElementById('formBlock').style.display='none';
+    document.getElementById('formSuccess').style.display='block';
+
+  } catch(err){
+    console.error(err);
+    alert('Не удалось отправить заявку. Попробуйте ещё раз или напишите нам на optimusbg@mail.ru');
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalBtnText;
+  }
 }
 </script>
 
